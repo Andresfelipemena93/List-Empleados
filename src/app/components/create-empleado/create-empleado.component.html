@@ -1,0 +1,42 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>Agregar nuevo empleado
+                        <div *ngIf="loading" class="spinner-border text-success float-end" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </h3>
+                    <span *ngIf="submitted && createEmpleado.invalid" class="badge bg-danger">Todos los campos son obligatorios</span>
+                    <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEmpleado()">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" 
+                                    formControlName="nombre" placeholder="nombre">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" 
+                                    formControlName="apellido" placeholder="apellido">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control form-control-lg mt-3"
+                            formControlName="documento" placeholder="documento">
+                        <input type="number" class="form-control form-control-lg mt-3"
+                            formControlName="salario" placeholder="salario">
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary" 
+                                style="margin-right: 15px" routerLink="/list-empleados">
+                                    Volver
+                            </button>
+                            <button type="submit" class="btn btn-secondary btn-dark">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
